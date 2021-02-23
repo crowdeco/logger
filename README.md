@@ -2,7 +2,7 @@
 
 ## Requirement
 
-This package need environment variable `APP_DEBUG` with **boolean** value (`true` or `false`)
+This package needs environment variable `APP_DEBUG` with **boolean** value (`true` or `false`)
 
 ## Install
 
