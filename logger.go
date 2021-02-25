@@ -36,7 +36,7 @@ func (l logger) Trace(message string) {
 			caller = detail.Name()
 		}
 
-		l.logger.WithFields(l.fields(caller, file, line)).Trace(message)
+		go l.logger.WithFields(l.fields(caller, file, line)).Trace(message)
 	}
 }
 
@@ -52,7 +52,7 @@ func (l logger) Debug(message string) {
 			caller = detail.Name()
 		}
 
-		l.logger.WithFields(l.fields(caller, file, line)).Debug(message)
+		go l.logger.WithFields(l.fields(caller, file, line)).Debug(message)
 	}
 }
 
@@ -68,7 +68,7 @@ func (l logger) Info(message string) {
 			caller = detail.Name()
 		}
 
-		l.logger.WithFields(l.fields(caller, file, line)).Info(message)
+		go l.logger.WithFields(l.fields(caller, file, line)).Info(message)
 	}
 }
 
@@ -84,7 +84,7 @@ func (l logger) Warning(message string) {
 			caller = detail.Name()
 		}
 
-		l.logger.WithFields(l.fields(caller, file, line)).Warning(message)
+		go l.logger.WithFields(l.fields(caller, file, line)).Warning(message)
 	}
 }
 
@@ -99,7 +99,7 @@ func (l logger) Error(message string) {
 		caller = detail.Name()
 	}
 
-	l.logger.WithFields(l.fields(caller, file, line)).Error(message)
+	go l.logger.WithFields(l.fields(caller, file, line)).Error(message)
 }
 
 func (l logger) Fatal(message string) {
@@ -113,7 +113,7 @@ func (l logger) Fatal(message string) {
 		caller = detail.Name()
 	}
 
-	l.logger.WithFields(l.fields(caller, file, line)).Fatal(message)
+	go l.logger.WithFields(l.fields(caller, file, line)).Fatal(message)
 }
 
 func (l logger) Panic(message string) {
@@ -127,7 +127,7 @@ func (l logger) Panic(message string) {
 		caller = detail.Name()
 	}
 
-	l.logger.WithFields(l.fields(caller, file, line)).Panic(message)
+	go l.logger.WithFields(l.fields(caller, file, line)).Panic(message)
 }
 
 func (l logger) fields(caller string, file string, line int) logrus.Fields {
